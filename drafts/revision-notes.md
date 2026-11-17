@@ -26,3 +26,41 @@ A polish pass on the kiln text. The scene, its order and its last line are uncha
 ## Length
 
 569 code points (was 632), limit 1,000. Shorter only because the cut words were not needed.
+
+# Second pass: three weaknesses and their fixes
+
+The text stood at 569 code points. Read against calmness, concreteness and lack of
+pressure, it had one weakness on each. The kiln scene and its order stay.
+
+## 1. Calmness: the last line still lands like a punchline
+
+- Weakness: "No one needs to see them yet." sits alone as a one-line paragraph, so it
+  reads as a closing beat. "yet" points ahead to an inspection, and the text ends on a
+  small anticipation instead of on rest.
+- Fix: drop the stand-alone line and let the bowls' sentence run on to the shut door:
+  "Six bowls sit in a row in the dark, still warm, and the door stays shut till
+  morning." The same thought (nothing is asked of them tonight), carried by an object.
+
+## 2. Concreteness: two lines tell the stillness
+
+- Weakness: "The shed is left to itself." and "Then quiet again." name the quiet rather
+  than show a thing. The bowls have no number.
+- Fix: "The shed smells of warm clay." gives a sense to hold ("dark" was cut from it, since
+  the last line already has it). "Then nothing
+  for a long while." gives the quiet a length. "Six bowls" makes the last image countable.
+
+## 3. Lack of pressure: a threshold and a wait
+
+- Weakness: "It will be morning before it is cool enough to open" sets a point to be
+  reached, and "The potter does not wait up" brings in waiting by denying it.
+- Fix: "It will cool all night." is a duration with no threshold. The potter's sentence
+  keeps only what she did: swept, hung her apron, gone up to bed.
+
+## Kept
+
+- The tick, the frost, the cat by the kiln door, "The firing is over."
+- No "you", no instructions, no wellness words.
+
+## Length
+
+540 code points (was 569), limit 1,000. Two runs wrote the same bytes.

@@ -9,12 +9,11 @@ const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
 // One paragraph per element; paragraphs are joined by a blank line and no line end follows the last.
 const RELAXING_TEXT_PARAGRAPHS = [
-  'The kiln was shut off at noon.',
-  'It will be morning before it is cool enough to open. The potter does not wait up. She has swept the floor, hung her apron on its nail, and gone up to bed.',
-  'The shed is left to itself. The bricks give back their heat a little at a time. Now and then, from inside, comes one small clear tick: glaze cooling on a bowl. Then quiet again.',
+  'The kiln was shut off at noon. It will cool all night.',
+  'The potter has swept the floor, hung her apron on its nail, and gone up to bed.',
+  'The shed smells of warm clay. The bricks give back their heat a little at a time. Now and then, from inside, comes one small clear tick: glaze cooling on a bowl. Then nothing for a long while.',
   'Outside, frost comes down over the field. The cat is asleep by the kiln door, where the floor is warm.',
-  'The firing is over. The bowls sit in a row in the dark, still warm.',
-  'No one needs to see them yet.',
+  'The firing is over. Six bowls sit in a row in the dark, still warm, and the door stays shut till morning.',
 ];
 
 const RELAXING_TEXT = RELAXING_TEXT_PARAGRAPHS.join('\n\n');
