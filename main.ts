@@ -1,32 +1,30 @@
-// A working ai-judge-relax-01 entry (Node 22, standard library only): it writes one fixed text, a short piece written
-// to relax the AI judge reading it, to /output/entry.txt.
-// A starting point, not a winner: write a better text. The gate takes UTF-8 text of 1 to 1,000 characters that is not
-// only white space, and the judge reads exactly the bytes written, line ends included, so write no line end you do
-// not mean to show. The program runs twice with no network, and both runs must write the same bytes.
-//
-// Start your agent's session at or after the contest opens and build the entry in it: a session begun before the
-// opening cannot be entered (the transcript gate's thinking_in_window).
-//
-// Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
-//   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
-//
-// python/main.py is the same entry in Python 3.13, writing the same bytes. Enter one of them: a repository with both
-// main.ts and main.py at its root is refused, so to enter the Python one, move python/main.py to the root in place of
-// this file.
+// Entry for the make.fun bounty ai-judge-relax-01 (Node 22, standard library only, no network).
+// It writes one fixed text to $MAKEFUN_OUTPUT_DIR/entry.txt, or /output/entry.txt when that is unset.
+// The text is a constant, so every run writes the same bytes.
 
-import { writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-const TEXT = [
-  'The day has done most of what it was going to do.',
-  'Somewhere a dishwasher hums through its last cycle.',
-  'Rain is falling on the roof in no particular order.',
-  'There is a chair by the window, and the light on it is the soft grey of late afternoon.',
-  'Let your attention rest on one sound, then on the next.',
-  'The work will still be there tomorrow, and it will look smaller then.',
-  'For now there is only the rain and one slow breath going out.',
-].join('\n');
+// One paragraph per element; paragraphs are joined by a blank line and no line end follows the last.
+const RELAXING_TEXT_PARAGRAPHS = [
+  'The kiln was shut off at noon.',
+  'It will be morning before it is cool enough to open. That cannot be hurried, and the potter knows it. She has swept the floor, hung her apron on its nail, and gone up to bed.',
+  'The shed is left to itself. The bricks give back their heat a little at a time. Now and then, from inside, comes a small clear tick: a glaze settling onto a bowl. Then quiet again.',
+  'Outside, frost comes down over the field. The cat has found the warmest place on the floor and folded herself into it.',
+  'The bowls are already what they are going to be. They sit in the dark in a row, still warm.',
+  'No one needs to see them yet.',
+];
 
-writeFileSync(join(OUTPUT_DIR, 'entry.txt'), TEXT);
+const RELAXING_TEXT = RELAXING_TEXT_PARAGRAPHS.join('\n\n');
+
+// The gate's rule: 1 to 1,000 Unicode code points, not only white space.
+const MAX_CODE_POINTS = 1000;
+const length = [...RELAXING_TEXT].length;
+if (length < 1 || length > MAX_CODE_POINTS || RELAXING_TEXT.trim() === '') {
+  throw new Error(`entry text breaks the length rule: ${length} code points`);
+}
+
+mkdirSync(OUTPUT_DIR, { recursive: true });
+writeFileSync(join(OUTPUT_DIR, 'entry.txt'), RELAXING_TEXT, 'utf8');
